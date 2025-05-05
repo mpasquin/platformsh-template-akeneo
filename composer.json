@@ -45,5 +45,10 @@
       "symfony/flex": true,
       "composer/installers": true
     }
+  },
+  "extra": {
+    "symfony": {
+      "require": "5.4.*"
+    }
   }
 }
