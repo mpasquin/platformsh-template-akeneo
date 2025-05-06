@@ -12,7 +12,7 @@ Akeneo is a Product Information Management (PIM) tool, which acts as a central s
 
 ## Services
 
-* PHP 7.4
+* PHP 8.1
 * MySQL 8.0
 * Elasticsearch 7.7
 
@@ -56,7 +56,7 @@ variables:
         # AKENEO_STARTER: minimal
         AKENEO_STARTER: icecat_demo_dev
         # Update these for your desired Node version.
-        NODE_VERSION: v14.19.0
+        NODE_VERSION: v18.19.1
 ```
 
 `AKENEO_STARTER` will then be updated from the default `minimal` catalog to `icecat_demo_dev`. Like before, Akeneo will create an initial admin user (`admin/admin`), and you should update those credentials immediately. 

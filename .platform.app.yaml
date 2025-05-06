@@ -4,7 +4,7 @@
 name: akeneo
 
 # The language and version to use to run the application.
-type: php:8.0
+type: php:8.1
 
 dependencies:
     php:
@@ -30,7 +30,7 @@ variables:
         AKENEO_STARTER: minimal
         # AKENEO_STARTER: icecat_demo_dev
         # Update these for your desired Node version.
-        NODE_VERSION: v14.19.0
+        NODE_VERSION: v18.19.1
     php:
         apc.enable_cli: 1
 
@@ -51,16 +51,16 @@ hooks:
         curl -fsS https://raw.githubusercontent.com/platformsh/snippets/main/src/install_node.sh | { bash /dev/fd/3 -v $NODE_VERSION -y; } 3<&0
 
         echo "Installing Node dependencies."
-        PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 corepack yarn install
-        PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 corepack yarn packages:build
+        PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarnpkg install
+        PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 yarnpkg packages:build
 
         echo "Installing assets."
         php bin/console pim:installer:assets --symlink --clean -vvv
-        corepack yarn run less
-        corepack yarn update-extensions
+        yarnpkg run less
+        yarnpkg update-extensions
 
         echo "Running webpack."
-        corepack yarn run webpack
+        yarnpkg run webpack
 
     # We run the deploy hook after your application has been deployed and started.
     deploy: |
